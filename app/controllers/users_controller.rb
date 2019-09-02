@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @posts = User.find(params[:id]).posts.order created_at: :desc
+    @posts = User.find(params[:id]).posts.order created_at: :desc #.page(params[:page]).per(3)
   end
 
   def edit
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :name, :website, :bio, :email, :phone, :gender)
+    params.require(:user).permit(:username, :name, :website, :bio, :email, :phone, :gender, :avatar)
   end
 
   def update

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def show
+    @posts = User.find(params[:id]).posts.order created_at: :desc
   end
 
   def edit
